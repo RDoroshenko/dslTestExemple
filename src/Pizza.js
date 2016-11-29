@@ -1,11 +1,4 @@
-export class Pizza {
-    constructor(baseType, ingredient, toping) {
-        this.baseType = baseType;
-        this.ingredient = ingredient;
-        this.toping = toping;
-        this.payed = false;
-        this.givenOut = false;
-    }
+export class PizzaBuilder {
 
     withBase(baseType) {
         this.baseType = baseType;
@@ -23,6 +16,19 @@ export class Pizza {
         return this
     }
 
+    build() {
+        return new Pizza(this.baseType, this.ingredient, this.toping)
+    };
+}
+
+export class Pizza {
+    constructor(baseType, ingredient, toping, payed, givenOut) {
+        this.baseType = baseType;
+        this.ingredient = ingredient;
+        this.toping = toping;
+        this.payed = false;
+        this.givenOut = false;
+    }
     order() {
         this.ordered = true;
     }
@@ -37,7 +43,4 @@ export class Pizza {
         }
     }
 
-    build() {
-        return new Pizza(this.baseType, this.ingredient, this.toping)
-    };
 }

@@ -1,5 +1,5 @@
 import { expect, assert }from 'chai'
-import { Pizza } from '../src/Pizza'
+import { Pizza, PizzaBuilder } from '../src/Pizza'
 
 suite('When in pizzeria', function() {
     suite('Client orders pizza', function() {
@@ -12,7 +12,7 @@ suite('When in pizzeria', function() {
         });
         test('with thin base and gets pizza with thin base', function() {
             let pizza =
-                new Pizza()
+                new PizzaBuilder()
                     .withBase('thin')
                     .build();
 
@@ -22,7 +22,7 @@ suite('When in pizzeria', function() {
         });
         test('with chicken and gets pizza with thin chicken', function() {
             let pizza =
-                new Pizza()
+                new PizzaBuilder()
                 .withIngredient('chicken')
                 .build();
 
@@ -32,7 +32,7 @@ suite('When in pizzeria', function() {
         });
         test('without olives and gets pizza without olives', function() {
             let pizza =
-                new Pizza()
+                new PizzaBuilder()
                     .withoutToping('olives')
                     .build();
 
